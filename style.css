@@ -1007,8 +1007,21 @@ footer {
     .img1:hover, .img3:hover {
         transform: scale(1.1) rotate(0deg);
     }
+     
+    .sobreContainer, .habilidadesContainer, .projetosContainer, .contatoContainer {
+        padding: 60px 5%;
+    }
+
+     .sobreTexto {
+        max-width: 100%;
+    }
 }
 @media (max-width: 395px) {
+
+    p {
+        max-width: 550px;
+        font-size: 1.1rem;
+    }
     .skills-icons { font-size: 2rem; gap: 15px; }
     .about-image img { width: 120px; }
 
