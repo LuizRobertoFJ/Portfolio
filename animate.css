@@ -17,6 +17,7 @@
 .headline { animation-delay: 0.9s; }
 .hero-actions { animation-delay: 1.1s; }
 
+
 @keyframes heroUp {
   to {
     opacity: 1;
@@ -123,6 +124,12 @@ nav.shrink {
 
 .contato-grid {
   opacity: 0;
+  transition: 1.3s ease-in-out;
+}
+
+.contato { 
+  opacity: 0;
+  transform: translateY(40px);
   transition: 1s ease;
 }
 

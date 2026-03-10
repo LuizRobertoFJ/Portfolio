@@ -77,7 +77,7 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
-h2 , h1 { font-size: 2.5rem; margin-bottom: 1rem; 
+h2  { font-size: 2.5rem; margin-bottom: 1rem; 
   font-family: "Marcellus", serif;
   font-weight: 600;
   font-style: normal;}
@@ -254,22 +254,36 @@ header {
     box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
     animation: pulse 2s infinite;
 }
-
+.saudacao {
+    font-size: 2rem !important;
+    color: var(--color2);
+    margin-bottom: 10px;
+    font-family: "Ysabeau Office", sans-serif;
+}
 /* --- Tipografia de Alto Nível --- */
-.nome-destaque ,.sobrenome {
-    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsividade automática */
+.nome-destaque  {
+    font-size: 4rem ;
     font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: #fff;
+    margin-bottom: 2px;
+    font-family: "Marcellus", serif;
 }
 
-.nome-destaque ,.sobrenome {
+.nome-destaque  {
     display: block;
-    background: linear-gradient(to right, #ffffffec, var(--color4));
+    background: linear-gradient(to right, var(--color5), var(--color6));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 2px 10px rgba(0,0,0,0.1));
+}
+
+.sobrenome {
+    font-size: 3.8rem;
+    background: linear-gradient(to right, var(--color2), var(--color5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 10px rgba(0,0,0,0.1));
+    font-family: "Marcellus", serif;
+
 }
 
 .headline {
@@ -386,7 +400,7 @@ header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 80px;
+    gap: 0px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -518,8 +532,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     gap: 60px;
-    width: 85%;
-    max-width: 1100px;
+    max-width: 1200px;
     justify-content: center;
     padding: 40px;
     background: rgba(255, 255, 255, 0.15); /* Transparência do Vidro */
@@ -864,7 +877,7 @@ footer {
     .hero-actions { flex-direction: column; }
     .olaimg { width: 280px; height: 280px; }
 
-    .saudacao { font-size: 2rem; }
+    .saudacao { font-size: 2rem; color: var(--color2); }
 
     .sobreImagens {
         height: auto; /* Remove a altura fixa de 600px para não sobrar espaço */
@@ -892,7 +905,7 @@ footer {
     /* --- Inclinações sutis uma para cada lado --- */
     
     .img1 { 
-        transform: rotate(-8deg) translateX(15px); 
+        transform: rotate(-deg) translateX(15px); 
         z-index: 1;
     }
 
@@ -920,6 +933,15 @@ footer {
     /* Ajuste na img1 e img3 hover para não encavalar muito */
     .img1:hover, .img3:hover {
         transform: scale(1.1) rotate(0deg);
+    }
+       
+    .sobreContainer, .habilidadesContainer, .projetosContainer, .contatoContainer, footer {
+        padding: 15px 5%;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+       text-align: center;
+
     }
 }
 @media (max-width: 768px) {
@@ -982,7 +1004,16 @@ footer {
 
 }
 @media (max-width: 480px) {
-    .skills-icons { font-size: 2.5rem; gap: 20px; }
+    .skills-icons { font-size: 2.5rem; gap: 20px;
+    }
+    
+    .skills-wrapper {
+        gap: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
     .about-image img { width: 160px; }
     nav {
         padding: 12px 5%;
@@ -1002,7 +1033,10 @@ footer {
     nav h1 {
         font-size: 1.2rem;
     }   
-
+    .about-image {
+        display: flex;
+        flex-direction: column;
+    }
    .sobreImagens {
     display: flex;
     justify-content: center;
@@ -1057,8 +1091,13 @@ footer {
         transform: scale(1.1) rotate(0deg);
     }
      
-    .sobreContainer, .habilidadesContainer, .projetosContainer, .contatoContainer {
-        padding: 60px 5%;
+    .sobreContainer, .habilidadesContainer, .projetosContainer, .contatoContainer, footer {
+        padding: 15px 5%;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+       text-align: center;
+
     }
 
      .sobreTexto {

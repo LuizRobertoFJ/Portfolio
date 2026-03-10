@@ -1,7 +1,7 @@
 // 1. Dicionário de Textos
 const textos = {
     en: {
-        nomeDestaque: "I'm Luiz Roberto",
+        nomeDestaque: "Luiz Roberto",
         sobrenome: "Faria Junior",
         headline: "In the ring or in the code, my mission is always to evolve and deliver peak performance.",
         sobre: "About me",
@@ -16,12 +16,12 @@ const textos = {
         habilidades: "Skills",
         habilidadesP: "The technologies I use to transform ideas into modern interfaces.",
         projeto: "Projects",
-        contato: "Contact",
+        contato: "send me a message",
         contatoTitulo: "Let's talk?",
         contatoP: "I am always looking for new challenges and connections. Feel free to send me a message or follow me on social media.",
     },
     pt: {
-        nomeDestaque: "Sou o Luiz Roberto",
+        nomeDestaque: "Luiz Roberto",
         sobrenome: "Faria Junior",
         headline: "No ringue ou no código, minha missão é sempre evoluir e entregar o melhor desempenho.",
         sobre: "Sobre mim",
@@ -36,7 +36,7 @@ const textos = {
         habilidades: "Habilidades",
         habilidadesP: "As tecnologias que utilizo para transformar ideias em interfaces modernas.",
         projeto: "Projetos",
-        contato: "Contato",
+        contato: "Entre em contato",
         contatoTitulo: "Vamos conversar?",
         contatoP: "Estou sempre em busca de novos desafios e conexões. Sinta-se à vontade para me enviar uma mensagem ou me seguir nas redes sociais.",
     }
