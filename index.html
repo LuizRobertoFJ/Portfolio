@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,11 +25,12 @@
   <div class="colunm">
     <div class="status-badge">
       <span class="pulse-dot"></span>
-      <span data-translate="status">Disponível para novos projetos</span>
+      <span data-translate="status" class="reveal-item">Disponível para novos projetos</span>
     </div>
 
     <h1 class="saudacao" data-translate="saudacao"></h1>
-    <h1 class="nome-destaque">I'm Luiz Roberto <span class="sobrenome">Faria Junior</span></h1>
+    <h1 class="nome-destaque" data-translate="nomeDestaque"></h1>
+    <h1 class="sobrenome" data-translate="sobrenome"></h1>
 
     <p class="headline" data-translate="headline"></p>
 
@@ -76,7 +78,7 @@
     </div>
 </nav>
     <main>
-      <section class="sobreContainer box" id="sobreContainer">
+      <section class="sobreContainer box animar" id="sobreContainer">
   <div class="sobreWrapper"> <div class="sobreTexto"> 
     <h2 data-translate="sobre"></h2>
    <h3 data-translate="sobreh3"></h3>
@@ -105,7 +107,7 @@
 
   </div>
 </section>
-<section class="habilidadesContainer box" id="habilidadesContainer">
+<section class="habilidadesContainer box animar" id="habilidadesContainer">
   <div class="section-wrapper">
   <div class="habilidadeWrapper">
     <h2 data-translate="habilidades">Habilidades</h2>
@@ -137,6 +139,10 @@
         <div class="skills-category">
             <h3>Backend & Tools</h3>
             <div class="skills-icons">
+              <div class="icon-box">
+            <i class="devicon-nodejs-plain colored"></i>
+            <span>Node.js</span>
+                   </div>
                 <div class="icon-box">
                     <i class="devicon-postgresql-plain colored"></i>
                     <span>PostgreSQL</span>
@@ -152,7 +158,7 @@
     </div>
     </div>
 </section>
-        <section class="projetosContainer box" id="projetosContainer">
+        <section class="projetosContainer box animar" id="projetosContainer">
           <div class="section-wrapper">
          <h2 data-translate="projeto"></h2>
          <section class="boxcard">
@@ -164,17 +170,15 @@
             <h3>title</h3>
             <p>desc</p>
          </div>
-         
+          <div class="card"data-title="Projeto 3" data-desc="Descrição do Projeto 1">
+           <h3></h3>
+           <p></p>
+          </div>
          </section>
-         <div id="modal" class="modal">
-  <div class="modal-content">
-    <h2 id="modal-title"></h2>
-    <p id="modal-desc"></p>
-  </div>
-</div>
+       
 </div>
 </section>
-<section class="contatoContainer box" id="contatoContainer">
+<section class="contatoContainer box animar" id="contatoContainer">
   <div class="section-wrapper">
    <h2 data-translate="contato"></h2>
     <div class="sobreWrapper">
@@ -202,24 +206,24 @@
                 </div>
             </div>
 
-            <form class="contato-form glass-card" onsubmit="return false;">
-                <div class="input-group">
-                    <label>Nome</label>
-                    <input type="text" placeholder="Como posso te chamar?" required>
-                </div>
-                <div class="input-group">
-                    <label>E-mail</label>
-                    <input type="email" placeholder="seu@email.com" required>
-                </div>
-                <div class="input-group">
-                    <label>Mensagem</label>
-                    <textarea placeholder="Conte-me sobre sua ideia ou projeto..." rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn-enviar">
-                    <span>Enviar Mensagem</span>
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
-            </form>
+          <form class="contato-form glass-card">
+    <div class="input-group">
+        <label data-translate="contatoNome">Nome</label>
+        <input type="text" placeholder="Como posso te chamar?" required>
+    </div>
+    <div class="input-group">
+        <label data-translate="contatoEmail">E-mail</label>
+        <input type="email" placeholder="seu@email.com" required>
+    </div>
+    <div class="input-group">
+        <label data-translate="contatoMensagem">Mensagem</label>
+        <textarea placeholder="Conte-me sobre sua ideia..." rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn-enviar">
+        <span data-translate="contatoBotao">Enviar Mensagem</span>
+        <i class="fa-solid fa-paper-plane"></i>
+    </button>
+</form>
 
         </div>
     </div>
@@ -227,7 +231,7 @@
 </section>
         <footer class="footer">
   <div class="footer-content">
-    <p>© 2025 | <span>Luiz Roberto</span> | All rights reserved.</p>
+    <p>© 2026 | <span>Luiz Roberto</span> | All rights reserved.</p>
     <div class="footer-icons">
       <a href="mailto:seuemail@gmail.com" title="E-mail">
         <i class="fas fa-envelope"></i>
@@ -242,6 +246,18 @@
   </div>
   
 </footer>
+<div id="projetoModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="modalImg" src="./img/Findware.png" alt="Print do Projeto">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+    <div class="modal-links">
+      <a id="modalRepo" href="#" target="_blank">GitHub</a>
+      <a id="modalDeploy" href="#" target="_blank">Live Demo</a>
+    </div>
+  </div>
+</div>
 <script src="script.js"></script>
 </body>
 </html>

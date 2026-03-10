@@ -1,6 +1,8 @@
 // 1. Dicionário de Textos
 const textos = {
     en: {
+        nomeDestaque: "I'm Luiz Roberto",
+        sobrenome: "Faria Junior",
         headline: "In the ring or in the code, my mission is always to evolve and deliver peak performance.",
         sobre: "About me",
         sobreh3: "Ring discipline, code precision.",
@@ -18,7 +20,9 @@ const textos = {
         contatoTitulo: "Let's talk?",
         contatoP: "I am always looking for new challenges and connections. Feel free to send me a message or follow me on social media.",
     },
-    pt: { 
+    pt: {
+        nomeDestaque: "Sou o Luiz Roberto",
+        sobrenome: "Faria Junior",
         headline: "No ringue ou no código, minha missão é sempre evoluir e entregar o melhor desempenho.",
         sobre: "Sobre mim",
         sobreh3: "A disciplina do ringue, a precisão do código.",
@@ -117,5 +121,87 @@ navItems.forEach(item => {
 
 // 7. Inicialização (Força PT ao carregar)
 document.addEventListener("DOMContentLoaded", () => {
-    updateLanguage("pt");
+    const idiomaSalvo = localStorage.getItem("idioma") || "pt";
+    updateLanguage(idiomaSalvo);
+});
+
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector("nav");
+
+  if (window.scrollY > 50) {
+    nav.classList.add("shrink");
+  } else {
+    nav.classList.remove("shrink");
+  }
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+   if (entry.isIntersecting) {
+    entry.target.classList.add("show");
+} else {
+    entry.target.classList.remove("show"); // Opcional: remove quando sai da tela
+}
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(
+  ".sobreTexto, .sobreImagens, .habilidadeWrapper, .projetosContainer, .contato-grid"
+).forEach(el => observer.observe(el));
+
+const modal = document.getElementById("projetoModal");
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    // Extrai os dados do card clicado
+    const title = card.getAttribute("data-title");
+    const desc = card.getAttribute("data-desc");
+    const img = card.getAttribute("data-image");
+    const repo = card.getAttribute("data-repo");
+    const link = card.getAttribute("data-link");
+
+    // Preenche o modal
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDesc").innerText = desc;
+    document.getElementById("modalImg").src = img || "placeholder.jpg";
+    document.getElementById("modalRepo").href = repo;
+    document.getElementById("modalDeploy").href = link;
+
+    // Mostra o modal
+    modal.style.display = "block";
+  });
+});
+
+// Fechar ao clicar no X ou fora do modal
+document.querySelector(".close-btn").onclick = () => modal.style.display = "none";
+window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
+
+
+document.querySelector('.contato-form').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+
+    // 1. Captura os dados dos campos
+    const nome = this.querySelector('input[type="text"]').value;
+    const email = this.querySelector('input[type="email"]').value;
+    const mensagem = this.querySelector('textarea').value;
+
+    // 2. Configura seu número (DDI 55 + DDD 47 + Numero)
+    const meuNumero = "5547996828896";
+
+    // 3. Monta o texto da mensagem com quebras de linha (%0A)
+    // Usamos encodeURIComponent para que caracteres especiais não quebrem o link
+    const textoMensagem = encodeURIComponent(
+        `🚀 *Novo contato do Portfólio* 🚀\n\n` +
+        `*Nome:* ${nome}\n` +
+        `*E-mail:* ${email}\n` +
+        `*Mensagem:* ${mensagem}`
+    );
+
+    // 4. Cria a URL final
+    const urlZap = `https://api.whatsapp.com/send?phone=${meuNumero}&text=${textoMensagem}`;
+
+    // 5. Abre em uma nova aba e limpa o form
+    window.open(urlZap, '_blank');
+    this.reset(); 
 });
